@@ -67,6 +67,11 @@ h1{margin:16px 0 16px;font-size:clamp(42px,7vw,78px);line-height:.98;letter-spac
 .notice{margin:0 0 24px;padding:16px 20px;border:1px solid rgba(251,191,36,.3);border-radius:var(--radius);
   background:linear-gradient(135deg,rgba(251,191,36,.09),rgba(168,85,247,.06));color:#fde68a;font-size:14px}
 .notice strong{color:var(--amber)}
+.related{margin:0 0 26px;padding:18px 22px;border:1px solid rgba(168,85,247,.32);border-radius:var(--radius);
+  background:linear-gradient(135deg,rgba(168,85,247,.12),rgba(251,146,60,.06));display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap}
+.related h2{margin:5px 0 6px;font-size:20px;letter-spacing:-.02em}
+.related p{margin:0;color:var(--muted);font-size:14px;max-width:760px}
+.related .btn{flex:0 0 auto}
 
 .workspace{border:1px solid var(--line);border-radius:calc(var(--radius) + 6px);background:linear-gradient(180deg,rgba(29,20,42,.94),rgba(19,12,28,.96));
   box-shadow:0 28px 80px rgba(0,0,0,.42);overflow:hidden;position:relative}
@@ -180,6 +185,7 @@ footer{padding:34px 0 38px}
   .error{margin-left:16px;margin-right:16px}
   .kv{grid-template-columns:1fr}.help-grid{grid-template-columns:1fr}
   .mnemonic-grid{grid-template-columns:repeat(auto-fill,minmax(130px,1fr))}
+  .related .btn{width:100%}
 }
 @media(max-width:470px){
   .brand{font-size:15px}.brand-mark,.brand-mark svg{width:36px;height:36px}
@@ -229,6 +235,15 @@ footer{padding:34px 0 38px}
 
   <section class="notice">
     <strong>What this produces:</strong> a BIP39 mnemonic (recovery phrase) and its checksum — the seed from which keys are later derived by your wallet/coordinator. It does not create private keys or addresses itself, and it never broadcasts or stores anything. Verify every result on the same offline machine before trusting it.
+  </section>
+
+  <section class="related" aria-labelledby="related-title">
+    <div>
+      <span class="kicker">Companion tool</span>
+      <h2 id="related-title">Turn your seed into addresses</h2>
+      <p>Once each cosigner has a seed, use <strong>DontTrustVerifyAddresses</strong> to derive printable multisig or single-sig addresses from xpubs — legacy, nested SegWit, native SegWit, and Taproot. Download both pages onto the same offline machine before you begin.</p>
+    </div>
+    <a class="btn btn-primary" href="https://marc26z.github.io/DontTrustVerifyAddresses/" target="_blank" rel="noopener noreferrer">Open DontTrustVerifyAddresses →</a>
   </section>
 
   <section class="workspace" aria-labelledby="workspace-title">

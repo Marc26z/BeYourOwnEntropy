@@ -13,6 +13,10 @@ Open `index.html` directly in a browser, or use the GitHub Pages URL. There is n
 - Reproducible in Ian Coleman's BIP39 tool with **Dice [1-6]** or **Binary [0-1]** and **Use Raw Entropy (3 words per 32 bits)** — not "24 Words"
 - Strict offline CSP, no tracking, no storage, hide-values toggle, clear-all, and print stylesheet
 
+## Companion tool
+
+Once seeds are generated, use [DontTrustVerifyAddresses](https://marc26z.github.io/DontTrustVerifyAddresses/) to derive printable multisig or single-sig addresses from xpubs. Both pages are offline single-file apps; download them onto the same offline machine before use.
+
 ## Security warning
 
 **Never use this on an internet-connected computer.** Run it on a genuinely offline machine (for example, TAILS with networking disabled). Use real physical entropy — dice, coins, or paper slips — not an operating system random generator. Each multisig cosigner must generate their own seed independently. See https://airgapcomputer.com/ for operational-security risks.
