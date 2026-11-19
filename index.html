@@ -6,7 +6,7 @@
 <meta name="color-scheme" content="dark">
 <meta name="referrer" content="no-referrer">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src 'none'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
-<title>BeYourOwnEntropy — Offline BIP39 Seed Lab</title>
+<title>BeYourOwnEntropy — Testnet-Only Educational BIP39 Seed Lab</title>
 <style>
 :root{
   --bg:#08050c;--bg2:#0d0813;--panel:rgba(20,13,29,.9);--panel2:#171020;
@@ -56,6 +56,9 @@ h1{margin:16px 0 16px;font-size:clamp(42px,7vw,78px);line-height:.98;letter-spac
 .lede{margin:0;max-width:760px;color:var(--muted);font-size:clamp(16px,1.7vw,19px);line-height:1.65}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
 .chips span{padding:6px 11px;border:1px solid var(--line);border-radius:999px;background:rgba(168,85,247,.055);color:#d8c6e8;font-size:12px;font-weight:650}
+.testnet-strip{margin:0 0 20px;padding:12px 16px;border:1px solid rgba(251,191,36,.5);border-radius:var(--radius);
+  background:linear-gradient(90deg,rgba(251,191,36,.16),rgba(251,113,133,.1));color:#fde68a;font-size:13px;font-weight:700;line-height:1.5}
+.testnet-strip strong{color:#fff7ed}
 
 .warning{margin:0 0 26px;padding:20px 22px;border:1px solid rgba(251,113,133,.42);border-radius:var(--radius);
   background:linear-gradient(135deg,rgba(251,113,133,.14),rgba(251,146,60,.08) 55%,rgba(23,16,32,.75));box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}
@@ -192,7 +195,7 @@ footer{padding:34px 0 38px}
   .key{min-width:40px}.word-list{grid-template-columns:1fr}
 }
 @media print{
-  header.site,.hero,.warning,.notice,.workspace,.help,footer,.toast,.result-actions{display:none!important}
+  header.site,.testnet-strip,.hero,.warning,.notice,.workspace,.help,footer,.toast,.result-actions{display:none!important}
   .results{display:block!important;border:0;box-shadow:none;background:#fff;color:#000}
   .results-head{padding:0}.result-body{padding:0;color:#000}
   .mw,.kv dd,.repro{color:#000}.mw{background:#f6f6f6;border-color:#ccc}
@@ -213,20 +216,22 @@ footer{padding:34px 0 38px}
       </span>
       <span>BeYourOwn<em>Entropy</em></span>
     </a>
-    <div class="pill"><span class="dot" aria-hidden="true"></span> Offline by design</div>
+    <div class="pill"><span class="dot" aria-hidden="true"></span> Testnet practice · Offline by design</div>
   </div>
 </header>
 
 <main id="top" class="shell">
+  <div class="testnet-strip" role="note">⚠ <strong>TESTNET ONLY · EDUCATIONAL PRACTICE.</strong> Testnet bitcoin has no value. This page is meant for practice — never use it to prepare a seed for real bitcoin.</div>
   <section class="hero">
-    <div class="kicker"><span class="kicker-line"></span> Airgapped BIP39 seed preparation</div>
+    <div class="kicker"><span class="kicker-line"></span> Testnet only · Educational BIP39 practice</div>
     <h1>Roll it. Flip it.<br><span class="grad">Verify the checksum.</span></h1>
-    <p class="lede">Generate a BIP39 recovery phrase from physical entropy — D6 dice, coin flips, or 23 words drawn from a hat. Everything runs in this single HTML file: no server, no trackers, no network calls. Built for preparing one cosigner seed in a multisig setup.</p>
-    <div class="chips" aria-label="Supported entropy sources"><span>D6 dice · Ian Coleman compatible</span><span>256 coin flips</span><span>23-word hat draw</span><span>BIP39 checksum computed locally</span><span>24-word seeds</span></div>
+    <p class="lede">Generate a BIP39 recovery phrase from physical entropy — D6 dice, coin flips, or 23 words drawn from a hat. Everything runs in this single HTML file: no server, no trackers, no network calls. <strong>For educational purposes only — a testnet practice tool, not for securing real bitcoin.</strong></p>
+    <div class="chips" aria-label="Supported entropy sources"><span>D6 dice · Ian Coleman compatible</span><span>256 coin flips</span><span>23-word hat draw</span><span>BIP39 checksum computed locally</span><span>24-word seeds</span><span>TESTNET ONLY · No real funds</span></div>
   </section>
 
   <section class="warning" aria-labelledby="warning-title">
     <h2 id="warning-title">⚠ Read this before you start</h2>
+    <p><strong>Educational purposes only — testnet practice.</strong> This page is for learning and practice with testnet bitcoin. <strong>Testnet bitcoin has no value.</strong> Keys for spending real bitcoin should never be entered on an online device — never type, paste, upload, or photograph real keys or a real recovery phrase here or into any online tool.</p>
     <p><strong>NEVER use this on an internet-connected computer.</strong> Run it on a genuinely offline machine — for example, TAILS with networking disabled, or a clean live USB that has never touched your normal OS. Do not type, paste, photograph, scan, or store any generated phrase on a device that can reach the internet.</p>
     <p><strong>Physical entropy is required.</strong> Use real dice, real coins, or real slips of paper — not your operating system's random number generator and not an online "random" service. The security of the result depends entirely on the randomness of the physical process.</p>
     <p><strong>Understand the operational risks.</strong> See <a href="https://airgapcomputer.com/" target="_blank" rel="noopener noreferrer">https://airgapcomputer.com/</a> for why airgapped setups fail in practice (malicious hardware, firmware, supply chain, covert channels, human error). Read that on a separate online device <em>before</em> you begin. This page cannot make an unsafe machine safe.</p>
@@ -234,14 +239,14 @@ footer{padding:34px 0 38px}
   </section>
 
   <section class="notice">
-    <strong>What this produces:</strong> a BIP39 mnemonic (recovery phrase) and its checksum — the seed from which keys are later derived by your wallet/coordinator. It does not create private keys or addresses itself, and it never broadcasts or stores anything. Verify every result on the same offline machine before trusting it.
+    <strong>What this produces:</strong> a BIP39 mnemonic (recovery phrase) and its checksum — the seed from which keys are later derived by your wallet/coordinator. It does not create private keys or addresses itself, and it never broadcasts or stores anything. Verify every result on the same offline machine before trusting it. <strong>Testnet practice only: never reuse a phrase generated here with real bitcoin or to secure real funds.</strong>
   </section>
 
   <section class="related" aria-labelledby="related-title">
     <div>
       <span class="kicker">Companion tool</span>
       <h2 id="related-title">Turn your seed into addresses</h2>
-      <p>Once each cosigner has a seed, use <strong>DontTrustVerifyAddresses</strong> to derive printable multisig or single-sig addresses and <strong>scannable QR codes</strong> from xpubs — legacy, nested SegWit, native SegWit, and Taproot. Download both pages onto the same offline machine before you begin.</p>
+      <p>For testnet practice, once each cosigner has a seed, use <strong>DontTrustVerifyAddresses</strong> with its <strong>Network</strong> selector set to <strong>Testnet</strong> to derive printable multisig or single-sig addresses and <strong>scannable QR codes</strong> from tpubs — legacy, nested SegWit, native SegWit, and Taproot. Download both pages onto the same offline machine before you begin.</p>
     </div>
     <a class="btn btn-primary" href="https://marc26z.github.io/DontTrustVerifyAddresses/" target="_blank" rel="noopener noreferrer">Open DontTrustVerifyAddresses →</a>
   </section>
@@ -372,7 +377,7 @@ footer{padding:34px 0 38px}
         <dt>Final word</dt><dd id="outFinal"></dd>
       </dl>
       <div class="repro secret" id="reproBox"></div>
-      <p class="hint" style="margin-top:14px;color:var(--orange2)">Clear your clipboard and this page when finished. Never enter this phrase into an online device, even to "check" it.</p>
+      <p class="hint" style="margin-top:14px;color:var(--orange2)">Testnet practice only — do not use this phrase to secure real bitcoin. Clear your clipboard and this page when finished. Never enter a real recovery phrase into an online device, even to "check" it.</p>
     </div>
   </section>
 
@@ -389,13 +394,13 @@ footer{padding:34px 0 38px}
         <p><strong>Dice:</strong> paste the exact <em>Used roll log</em> into the Entropy field, select <strong>Dice [1-6]</strong> (NOT Base 6 [0-5], NOT Base 10, NOT Hex), and set Mnemonic Length to <em>Use Raw Entropy (3 words per 32 bits)</em>. <strong>Coins:</strong> paste the displayed 0/1 string into the Entropy field, select <strong>Binary [0-1]</strong>, and use <em>Use Raw Entropy</em>. <strong>Hat:</strong> paste the final 24-word phrase into the Mnemonic field — it should validate.</p>
         <p>Do this on the same offline machine, not online.</p></details>
       <details><summary>What does "sensitive, but not secret" mean?</summary>
-        <p>A BIP39 seed phrase <em>is secret</em> and can spend funds. Treat it like cash. An xpub is merely sensitive. This page generates the secret seed, so handle the output with extreme care: use a trusted offline device, write it by hand on durable media, and never photograph or type it into a connected computer. See <code>https://airgapcomputer.com/</code> for operational-security pitfalls.</p></details>
+        <p>A BIP39 seed phrase <em>is secret</em> and can spend real funds. Treat it like cash. An xpub is merely sensitive. This page generates a practice seed for testnet only — never enter real keys or a real recovery phrase here or on any online device. Handle even practice output with care: use a trusted offline device, write it by hand on durable media, and never photograph or type it into a connected computer. See <code>https://airgapcomputer.com/</code> for operational-security pitfalls.</p></details>
     </div>
   </section>
 </main>
 
 <footer><div class="shell footer-inner">
-  <div><strong>BeYourOwnEntropy</strong><span>Offline BIP39 seed preparation for multisig.</span></div>
+  <div><strong>BeYourOwnEntropy</strong><span>Educational testnet practice · Offline BIP39 seed lab.</span></div>
   <div>No cookies. No analytics. No network requests.</div>
 </div></footer>
 <div id="toast" class="toast" role="status" aria-live="polite"></div>

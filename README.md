@@ -1,6 +1,6 @@
 # BeYourOwnEntropy
 
-A single-file, offline BIP39 seed entropy lab for preparing one cosigner seed in a multisig setup.
+A single-file, offline BIP39 seed entropy lab for **testnet practice only**. It is meant for educational purposes: testnet bitcoin has no value, and this tool is for practice, not for securing real bitcoin.
 
 Open `index.html` directly in a browser, or use the GitHub Pages URL. There is no build step, no server, no dependencies, and no network traffic.
 
@@ -15,9 +15,11 @@ Open `index.html` directly in a browser, or use the GitHub Pages URL. There is n
 
 ## Companion tool
 
-Once seeds are generated, use [DontTrustVerifyAddresses](https://marc26z.github.io/DontTrustVerifyAddresses/) to derive printable multisig or single-sig addresses from xpubs. Both pages are offline single-file apps; download them onto the same offline machine before use.
+For testnet practice, once seeds are generated, use [DontTrustVerifyAddresses](https://marc26z.github.io/DontTrustVerifyAddresses/) with its **Network** selector set to **Testnet** to derive printable multisig or single-sig addresses from tpubs. Both pages are offline single-file apps; download them onto the same offline machine before use.
 
 ## Security warning
+
+**Educational purposes only — testnet practice.** Testnet bitcoin has no value; this tool is for practice. Keys for spending real bitcoin should never be entered on an online device — never type, paste, or upload real keys or a real recovery phrase here or into any online tool.
 
 **Never use this on an internet-connected computer.** Run it on a genuinely offline machine (for example, TAILS with networking disabled). Use real physical entropy — dice, coins, or paper slips — not an operating system random generator. Each multisig cosigner must generate their own seed independently. See https://airgapcomputer.com/ for operational-security risks.
 
